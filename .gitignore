@@ -1,0 +1,48 @@
+# Python environments, caches, and packaging
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+_skbuild/
+
+# Native build products
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+*.so
+*.dylib
+*.dll
+*.pyd
+*.o
+*.obj
+*.a
+
+# Generated experiments; reference_results/ remains versioned
+/results/
+/figures/
+/.mpl-cache/
+/ag_icassp/
+*.log
+/VALIDATION.md
+
+# Local machine and editor files
+.DS_Store
+._*
+.idea/
+.vscode/
+*.swp
+*.swo
+.ipynb_checkpoints/
+.env
+.env.*
+!.env.example

@@ -1,0 +1,33 @@
+[build-system]
+requires = ["scikit-build-core>=0.12", "pybind11>=2.12"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "ag-dummies-icassp-reproduction"
+version = "1.0.0"
+description = "Reproduction package for adaptive virtual dummies and shared lazy Gram caching"
+readme = "README.md"
+license = "GPL-3.0-only"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "vendor/eigen/COPYING.MPL2"]
+requires-python = ">=3.12"
+dependencies = [
+  "numpy==2.4.6",
+  "scipy==1.18.0",
+  "matplotlib==3.10.9",
+  "joblib==1.5.3",
+  "tqdm==4.67.3",
+  "knockpy==1.3.5",
+  "TRexSelectorNeo @ git+https://github.com/G4Lactus/TRexSelector.git@c1edbfbea83ffb44eb4fcebc87b2888d3e5abb70#subdirectory=Python/TRexSelectorNeo",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "build>=1.2"]
+
+[tool.scikit-build]
+cmake.build-type = "Release"
+wheel.packages = ["python/vd_selectors"]
+sdist.exclude = [".venv/**", "results/**", "figures/**", ".mpl-cache/**", "**/__pycache__/**"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "experiments"]
